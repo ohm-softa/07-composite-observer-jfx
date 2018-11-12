@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+}
+
+group 'de.thro.inf.prg3'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+mainClassName = 'App'
+
+dependencies {
+	implementation("org.apache.commons:commons-lang3:$commons_lang3_version")
+	implementation("org.apache.logging.log4j:log4j-api:${log4j2Version}")
+	implementation("org.apache.logging.log4j:log4j-core:${log4j2Version}")
+
+	testCompile("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+	testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+	testRuntime("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
+}
+
+test {
+	useJUnitPlatform()
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}
