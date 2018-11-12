@@ -82,17 +82,13 @@ public class MainController implements Initializable {
 
 			@Override
 			public void onResponse(Call<List<Meal>> call, Response<List<Meal>> response) {
+				if (!response.isSuccessful()) return;
 				logger.debug("Handling positive response from API...");
 				if (response.body() == null) return;
 				Platform.runLater(() -> {
 
 					mealsList.getItems().clear();
-
-					if (vegetarianChkbox.isSelected()) {
-						mealsList.getItems().addAll(MealsFilterUtility.filterForVegetarian(response.body()));
-					} else {
-						mealsList.getItems().addAll(response.body());
-					}
+					mealsList.getItems().addAll(vegetarianChkbox.isSelected() ? MealsFilterUtility.filterForVegetarian(response.body()) : response.body());
 				});
 			}
 
@@ -102,7 +98,6 @@ public class MainController implements Initializable {
 				/* Show an alert if loading of mealsProperty fails */
 				Platform.runLater(() -> new Alert(Alert.AlertType.ERROR, "Failed to get mealsProperty", ButtonType.OK).showAndWait());
 			}
-
 		});
 	}
 }
