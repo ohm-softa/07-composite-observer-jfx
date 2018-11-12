@@ -9,7 +9,11 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 
-mainClassName = 'App'
+mainClassName = 'de.thro.inf.prg3.a07.App'
+
+repositories {
+	mavenCentral()
+}
 
 dependencies {
 	implementation("org.apache.commons:commons-lang3:$commons_lang3_version")
