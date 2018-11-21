@@ -4,6 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 /*
@@ -18,7 +22,7 @@ public class App extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("views/main.fxml"));
-		stage.setTitle("A07");
+		stage.setTitle("Cafeteria");
 		stage.setScene(new Scene(root, 800, 600));
 		stage.show();
 	}
