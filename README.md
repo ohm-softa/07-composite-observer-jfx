@@ -14,6 +14,10 @@ At the end of the day, you will have implemented a little app that retrieves the
 You can also opt for a (slightly more complex) [example using Android](https://github.com/hsro-inf-prg3/07-composite-observer).
 
 
+> Note: JavaFX is been removed from recent JDKs.
+> Use Java 8 to still get it.
+
+
 # GUI with JavaFX
 
 To get started, familiarize yourself with the given files of this project.
@@ -72,7 +76,7 @@ String today = sdf.format(new Date());
 ```
 
 - You will need to map the list of `Meal`s to a list of `String`s.
-- JavaFX forbids running network code on the UI thread; use the `Call.enqueue()` instead of the `Call.execute()` method, and pass it a `Callback<>` handler.
+- It is discouraged to run code on the UI thread; use the `Call.enqueue()` instead of the `Call.execute()` method, and pass it a `Callback<>` handler.
 - In the network callback, make sure to check if the response was successful, by checking `response.isSuccesful()` (which returns true for `2XX` codes).
 
 
