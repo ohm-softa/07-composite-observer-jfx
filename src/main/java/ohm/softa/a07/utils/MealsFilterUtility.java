@@ -1,6 +1,6 @@
-package de.thro.inf.prg3.a07.utils;
+package ohm.softa.a07.utils;
 
-import de.thro.inf.prg3.a07.model.Meal;
+import ohm.softa.a07.model.Meal;
 
 import java.util.LinkedList;
 import java.util.List;

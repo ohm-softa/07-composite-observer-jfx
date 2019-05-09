@@ -1,7 +1,7 @@
-package de.thro.inf.prg3.a07.tests;
+package ohm.softa.a07.tests;
 
-import de.thro.inf.prg3.a07.api.OpenMensaAPI;
-import de.thro.inf.prg3.a07.model.Meal;
+import ohm.softa.a07.api.OpenMensaAPI;
+import ohm.softa.a07.model.Meal;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import org.apache.logging.log4j.LogManager;

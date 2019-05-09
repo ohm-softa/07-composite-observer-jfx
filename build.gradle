@@ -2,14 +2,15 @@ plugins {
     id 'java'
     id 'application'
     id 'idea'
+	id 'org.openjfx.javafxplugin' version '0.0.7'
 }
 
-group 'de.thro.inf.prg3'
+group 'ohm.softa'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 
-mainClassName = 'de.thro.inf.prg3.a07.App'
+mainClassName = 'ohm.softa.a07.App'
 
 repositories {
 	mavenCentral()
@@ -27,6 +28,10 @@ dependencies {
 	testCompile("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
 	testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 	testRuntime("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
+}
+
+javafx {
+	modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 test {

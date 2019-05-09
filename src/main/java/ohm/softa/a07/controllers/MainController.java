@@ -1,15 +1,16 @@
-package de.thro.inf.prg3.a07.controllers;
+package ohm.softa.a07.controllers;
 
-import de.thro.inf.prg3.a07.api.OpenMensaAPI;
-import de.thro.inf.prg3.a07.model.Meal;
-import de.thro.inf.prg3.a07.utils.MealsFilterUtility;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.CheckMenuItem;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
+import ohm.softa.a07.api.OpenMensaAPI;
+import ohm.softa.a07.model.Meal;
+import ohm.softa.a07.utils.MealsFilterUtility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import retrofit2.Call;
@@ -27,7 +28,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
-
 	private static final Logger logger = LogManager.getLogger(MainController.class);
 	private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 	private final OpenMensaAPI openMensaAPI;
