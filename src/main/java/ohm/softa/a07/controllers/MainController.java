@@ -1,4 +1,4 @@
-package de.thro.inf.prg3.a07.controllers;
+package ohm.softa.a07.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
