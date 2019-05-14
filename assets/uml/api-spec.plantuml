@@ -1,0 +1,27 @@
+@startuml APISpec
+
+package de.fhro.inf.prg3.a07 {
+    interface OpenMensaAPI {
+        getMeals(date: String): Call<List<Meal>>
+    }
+
+    package model {
+        class Meal {
+            -id: int
+            -name: String
+            -category: String
+            -notes: List<String>
+
+            +getId(): int
+            +setId(id: int)
+            +getName(): String
+            +setName(name: String)
+            +getCategory(): String
+            +setCategory(category: String)
+            +getNotes(): List<String>
+            +setNotes(notes: List<String>)
+        }
+    }
+}
+
+@enduml
