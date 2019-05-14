@@ -53,11 +53,22 @@ public class Meal {
 	}
 
 	public boolean isVegetarian() {
+		if (category.toLowerCase().equals("vegetarisch")
+				|| category.toLowerCase().equals("vegan")) {
+			return true;
+		}
+
+		return false;
+
+		/* for other cafeterias than 269, it might be on the notes...
+		// make sure there's no meat in the notes
 		boolean containsMeat = false;
 		for(String s : notes){
-			containsMeat = containsMeat || s.contains("fleisch");
+			containsMeat = containsMeat || s.contains("fleisch") || s.contains("geflügel");
 		}
+
 		return !containsMeat;
+		*/
 	}
 
 	@Override
@@ -106,6 +117,6 @@ public class Meal {
 		}else {
 			notesBuilder.append("No notes");
 		}
-		return String.format("%s\n%s\n%s", name, category, notesBuilder.toString());
+		return String.format("%s%s\n%s\n%s", (isVegetarian() ? "(V)" : ""), name, category, notesBuilder.toString());
 	}
 }

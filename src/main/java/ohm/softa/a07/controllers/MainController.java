@@ -33,10 +33,18 @@ public class MainController implements Initializable {
 	private final OpenMensaAPI openMensaAPI;
 
 	@FXML
-	private CheckMenuItem vegetarianChkbox;
+	private CheckBox chkVegetarian;
+
+	@FXML
+	private Button btnClose;
+
+	@FXML
+	private Button btnRefresh;
 
 	@FXML
 	private ListView<Meal> mealsList;
+
+	private ObservableList<Meal> meals;
 
 	public MainController() {
 		Retrofit retrofit = new Retrofit.Builder()
@@ -74,6 +82,9 @@ public class MainController implements Initializable {
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		logger.debug("Initializing the MainController");
 		loadMensaData();
+
+		// hook up our model
+		meals = mealsList.getItems();
 	}
 
 	private void loadMensaData() {
@@ -82,13 +93,22 @@ public class MainController implements Initializable {
 
 			@Override
 			public void onResponse(Call<List<Meal>> call, Response<List<Meal>> response) {
-				if (!response.isSuccessful()) return;
-				logger.debug("Handling positive response from API...");
-				if (response.body() == null) return;
-				Platform.runLater(() -> {
+				if (!response.isSuccessful())
+					return;
 
-					mealsList.getItems().clear();
-					mealsList.getItems().addAll(vegetarianChkbox.isSelected() ? MealsFilterUtility.filterForVegetarian(response.body()) : response.body());
+				logger.debug("Handling positive response from API...");
+				if (response.body() == null) {
+					logger.error("Response did not contain valid body");
+					return;
+				}
+
+				logger.debug(MealsFilterUtility.filterForVegetarian(response.body()));
+
+				Platform.runLater(() -> {
+					meals.clear();
+					meals.addAll(chkVegetarian.isSelected()
+						? MealsFilterUtility.filterForVegetarian(response.body())
+						: response.body());
 				});
 			}
 
@@ -96,7 +116,10 @@ public class MainController implements Initializable {
 			public void onFailure(Call<List<Meal>> call, Throwable t) {
 				logger.error("Error occured while fetching data from API", t);
 				/* Show an alert if loading of mealsProperty fails */
-				Platform.runLater(() -> new Alert(Alert.AlertType.ERROR, "Failed to get mealsProperty", ButtonType.OK).showAndWait());
+				Platform.runLater(() -> {
+					meals.clear();
+					new Alert(Alert.AlertType.ERROR, "Failed to get mealsProperty", ButtonType.OK).showAndWait();
+				});
 			}
 		});
 	}
