@@ -14,8 +14,9 @@ At the end of the day, you will have implemented a little app that retrieves the
 You can also opt for a (slightly more complex) [example using Android](https://github.com/hsro-inf-prg3/07-composite-observer).
 
 
-> Note: JavaFX is been removed from recent JDKs.
-> Use Java 8 to still get it.
+> Note: JavaFX has been removed from OpenJDK starting with Version 9.
+> This assignment is configured to use the `org.openjfx.javafxplugin` plugin, which requires Java 11.
+> If you prefer, use Java8 and remove the plugin and the `javafx` section from the `build.gradle`.
 
 
 # GUI with JavaFX
