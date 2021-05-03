@@ -2,13 +2,11 @@ plugins {
     id 'java'
     id 'application'
     id 'idea'
-	id 'org.openjfx.javafxplugin' version "0.0.8"
+	id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
 group 'ohm.softa'
 version '1.0-SNAPSHOT'
-
-sourceCompatibility = JavaVersion.VERSION_1_8
 
 mainClassName = 'ohm.softa.a07.App'
 
@@ -25,12 +23,14 @@ dependencies {
 	implementation "com.squareup.retrofit2:retrofit:${retrofit2_version}"
 	implementation "com.squareup.retrofit2:converter-gson:${retrofit2_version}"
 
-	testCompile("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-	testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-	testRuntime("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
+	testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
 }
 
 javafx {
+	sdk = '/Users/riedhammerko/Library/Java/JavaVirtualMachines/javafx-sdk-17'
+	version = 17
 	modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
