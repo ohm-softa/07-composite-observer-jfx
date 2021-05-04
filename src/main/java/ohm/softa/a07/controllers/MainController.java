@@ -11,6 +11,8 @@ import javafx.scene.control.*;
 import ohm.softa.a07.api.OpenMensaAPI;
 import ohm.softa.a07.model.Meal;
 import ohm.softa.a07.utils.MealsFilterUtility;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import retrofit2.Call;
@@ -47,8 +49,14 @@ public class MainController implements Initializable {
 	private ObservableList<Meal> meals;
 
 	public MainController() {
+		// setup logging
+		HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+		interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+		OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+
 		Retrofit retrofit = new Retrofit.Builder()
 			.addConverterFactory(GsonConverterFactory.create())
+			.client(client)
 			.baseUrl("https://openmensa.org/api/v2/")
 			.build();
 
