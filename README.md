@@ -5,7 +5,7 @@ _This is an assignment to the [Software Architecture](https://ohm-softa.github.i
 
 In this assignment, you will
 - discover the model-view-controller (MVC) approach
-- use the [OpenMensa API](http://doc.openmensa.org/api/v2/)
+- use the [OpenMensa API](http://doc.openmensa.org/api/v2/overview/)
 - review annotations for JavaFX and Retrofit
 - see the [_composite_](https://en.wikipedia.org/wiki/Composite_pattern) pattern in action
 - use variants of the [_observer_](https://en.wikipedia.org/wiki/Observer_pattern) patterns.
@@ -17,7 +17,7 @@ You can also opt for a (slightly more complex) [example using Android](https://g
 > Note: JavaFX has been removed from OpenJDK starting with Version 9.
 > This assignment is configured to use the `org.openjfx.javafxplugin` plugin, which requires Java 11.
 > If you prefer, use Java8 and remove the plugin and the `javafx` section from the `build.gradle`.
-
+> The easiest way to make this assignment work is to use the [liberica JDK](https://bell-sw.com/pages/downloads/), which includes JFX.
 
 # GUI with JavaFX
 
@@ -47,7 +47,7 @@ As you can see, the `ListView` interface is generic and uses an item list which 
 
 Now that you understood the basic GUI elements and how to "bring them to life", let's look at where and how to get the data.
 
-The [OpenMensa API](http://doc.openmensa.org/api/v2/) is an API to retrieve the menu of a certain day of a certain canteen.
+The [OpenMensa API](http://doc.openmensa.org/api/v2/overview/) is an API to retrieve the menu of a certain day of a certain canteen.
 In the previous assignment, we used [Retrofit](http://square.github.io/retrofit/) to interact with the API.
 This time, we will use it again -- but don't worry you won't have to implement any TypeAdapters or anything else, it's straight forward this time.
 
@@ -93,3 +93,17 @@ a meal is vegetarian if none of the notes contains the string `"fleisch"`.
 - Change your code so that it filters the results if the checkbox is checked.
 
 > Note: Kudos if you can also trigger a refresh if the checkbox selection changes.
+
+## Using liberica in Intellij
+
+Download the SDK manually, or use the IntelliJ built-in SDK downloader (select version 11 to see liberica).
+
+![Liberica 1](./assets/images/liberica1.png)
+
+Optional: Configure IntelliJ to use Gradle and set the Gradle VM to liberica
+
+![Liberica 2](./assets/images/liberica2.png)
+
+Comment out the hard-coded SDK path; liberica contains JFX already.
+
+![Liberica 3](./assets/images/liberica3.png)
