@@ -59,7 +59,7 @@ This time, we will use it again -- but don't worry you won't have to implement a
 
 **Hints:** 
 - As shown last week, parameters of methods have to be mapped to parameters in the annotation.
-	The inline comment in the interface shows the actual query we want to produce, which requires canteen id and date (Rosenheim is 229).
+	The inline comment in the interface shows the actual query we want to produce, which requires canteen id and date (Hohfederstr. is 269).
 - The `Meal` class is provided.
 - Check out the `setup()` provided in `OpenMensaAPITests`: it adds an interceptor to Retrofit that will print out every request (and response) on the logcat.
 
