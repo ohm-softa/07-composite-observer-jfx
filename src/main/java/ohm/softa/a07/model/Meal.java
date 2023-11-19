@@ -6,10 +6,6 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by Peter Kurfer on 11/19/17.
- */
-
 public class Meal {
 	private int id;
 	private String name;

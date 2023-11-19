@@ -1,10 +1,9 @@
 package ohm.softa.a07.api;
 
-/**
- * Created by Peter Kurfer on 11/19/17.
- */
-
 public interface OpenMensaAPI {
 	// TODO add method to get meals of a day
-	// example request: GET /canteens/229/days/2017-11-22/meals
+	// Mensa Kesslerplatz: 268
+	// Mensa Insel Schütt: 265
+	// Mensa Techfak Erlangen: 256
+	// example request: GET /canteens/268/days/2023-11-21/meals
 }
